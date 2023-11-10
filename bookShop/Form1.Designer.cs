@@ -64,7 +64,6 @@
             label2.Size = new Size(127, 31);
             label2.TabIndex = 2;
             label2.Text = "Loading......";
-            label2.Click += label2_Click;
             // 
             // presentageLab
             // 
