@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
-            button5 = new Button();
-            button4 = new Button();
-            button3 = new Button();
-            textBox4 = new TextBox();
-            textBox3 = new TextBox();
+            resetBtn = new Button();
+            editBtn = new Button();
+            deleteBtn = new Button();
+            uAddressTxt = new TextBox();
+            uPwTxt = new TextBox();
             label12 = new Label();
             label11 = new Label();
             pictureBox4 = new PictureBox();
@@ -52,14 +51,15 @@
             label5 = new Label();
             panel2 = new Panel();
             label8 = new Label();
-            button1 = new Button();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            saveBtn = new Button();
+            uPhoneTxt = new TextBox();
+            uNameTxt = new TextBox();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
             panel3 = new Panel();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            refreshBtn = new Button();
+            userGDV = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -70,63 +70,57 @@
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)userGDV).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // resetBtn
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(3, 430);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(875, 221);
-            dataGridView1.TabIndex = 19;
+            resetBtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            resetBtn.Location = new Point(548, 295);
+            resetBtn.Name = "resetBtn";
+            resetBtn.Size = new Size(138, 41);
+            resetBtn.TabIndex = 16;
+            resetBtn.Text = "Reset";
+            resetBtn.UseVisualStyleBackColor = true;
+            resetBtn.Click += resetBtn_Click;
             // 
-            // button5
+            // editBtn
             // 
-            button5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button5.Location = new Point(655, 295);
-            button5.Name = "button5";
-            button5.Size = new Size(138, 41);
-            button5.TabIndex = 16;
-            button5.Text = "Reset";
-            button5.UseVisualStyleBackColor = true;
+            editBtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            editBtn.Location = new Point(198, 295);
+            editBtn.Name = "editBtn";
+            editBtn.Size = new Size(138, 41);
+            editBtn.TabIndex = 15;
+            editBtn.Text = "Edit";
+            editBtn.UseVisualStyleBackColor = true;
+            editBtn.Click += editBtn_Click;
             // 
-            // button4
+            // deleteBtn
             // 
-            button4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button4.Location = new Point(273, 295);
-            button4.Name = "button4";
-            button4.Size = new Size(138, 41);
-            button4.TabIndex = 15;
-            button4.Text = "Edit";
-            button4.UseVisualStyleBackColor = true;
+            deleteBtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            deleteBtn.Location = new Point(372, 295);
+            deleteBtn.Name = "deleteBtn";
+            deleteBtn.Size = new Size(138, 41);
+            deleteBtn.TabIndex = 14;
+            deleteBtn.Text = "Delete";
+            deleteBtn.UseVisualStyleBackColor = true;
+            deleteBtn.Click += deleteBtn_Click;
             // 
-            // button3
+            // uAddressTxt
             // 
-            button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button3.Location = new Point(469, 295);
-            button3.Name = "button3";
-            button3.Size = new Size(138, 41);
-            button3.TabIndex = 14;
-            button3.Text = "Delete";
-            button3.UseVisualStyleBackColor = true;
+            uAddressTxt.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            uAddressTxt.Location = new Point(470, 195);
+            uAddressTxt.Name = "uAddressTxt";
+            uAddressTxt.Size = new Size(156, 34);
+            uAddressTxt.TabIndex = 11;
             // 
-            // textBox4
+            // uPwTxt
             // 
-            textBox4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox4.Location = new Point(470, 195);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(156, 34);
-            textBox4.TabIndex = 11;
-            // 
-            // textBox3
-            // 
-            textBox3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox3.Location = new Point(699, 195);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(156, 34);
-            textBox3.TabIndex = 10;
+            uPwTxt.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            uPwTxt.Location = new Point(699, 195);
+            uPwTxt.Name = "uPwTxt";
+            uPwTxt.Size = new Size(156, 34);
+            uPwTxt.TabIndex = 10;
             // 
             // label12
             // 
@@ -174,7 +168,7 @@
             panel7.BackColor = Color.DeepSkyBlue;
             panel7.Controls.Add(pictureBox4);
             panel7.Controls.Add(label7);
-            panel7.Location = new Point(14, 395);
+            panel7.Location = new Point(14, 338);
             panel7.Name = "panel7";
             panel7.Size = new Size(211, 53);
             panel7.TabIndex = 13;
@@ -207,9 +201,9 @@
             panel1.Controls.Add(panel7);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(panel2);
-            panel1.Location = new Point(-1, -1);
+            panel1.Location = new Point(2, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(254, 744);
+            panel1.Size = new Size(254, 653);
             panel1.TabIndex = 8;
             // 
             // panel6
@@ -217,7 +211,7 @@
             panel6.BackColor = Color.DeepSkyBlue;
             panel6.Controls.Add(pictureBox3);
             panel6.Controls.Add(label6);
-            panel6.Location = new Point(14, 497);
+            panel6.Location = new Point(14, 440);
             panel6.Name = "panel6";
             panel6.Size = new Size(211, 53);
             panel6.TabIndex = 14;
@@ -238,7 +232,7 @@
             panel5.BackColor = Color.DeepSkyBlue;
             panel5.Controls.Add(pictureBox2);
             panel5.Controls.Add(label9);
-            panel5.Location = new Point(14, 292);
+            panel5.Location = new Point(14, 235);
             panel5.Name = "panel5";
             panel5.Size = new Size(211, 53);
             panel5.TabIndex = 12;
@@ -270,7 +264,7 @@
             panel4.BackColor = Color.DeepSkyBlue;
             panel4.Controls.Add(pictureBox1);
             panel4.Controls.Add(label5);
-            panel4.Location = new Point(14, 182);
+            panel4.Location = new Point(14, 125);
             panel4.Name = "panel4";
             panel4.Size = new Size(211, 53);
             panel4.TabIndex = 10;
@@ -308,38 +302,40 @@
             // 
             label8.AutoSize = true;
             label8.BackColor = Color.Transparent;
-            label8.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label8.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             label8.Location = new Point(1119, -4);
             label8.Name = "label8";
-            label8.Size = new Size(28, 31);
+            label8.Size = new Size(29, 31);
             label8.TabIndex = 10;
             label8.Text = "X";
+            label8.Click += label8_Click;
             // 
-            // button1
+            // saveBtn
             // 
-            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Location = new Point(92, 295);
-            button1.Name = "button1";
-            button1.Size = new Size(138, 41);
-            button1.TabIndex = 5;
-            button1.Text = "Save";
-            button1.UseVisualStyleBackColor = true;
+            saveBtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            saveBtn.Location = new Point(27, 295);
+            saveBtn.Name = "saveBtn";
+            saveBtn.Size = new Size(138, 41);
+            saveBtn.TabIndex = 5;
+            saveBtn.Text = "Save";
+            saveBtn.UseVisualStyleBackColor = true;
+            saveBtn.Click += saveBtn_Click;
             // 
-            // textBox2
+            // uPhoneTxt
             // 
-            textBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox2.Location = new Point(237, 195);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(156, 34);
-            textBox2.TabIndex = 4;
+            uPhoneTxt.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            uPhoneTxt.Location = new Point(237, 195);
+            uPhoneTxt.Name = "uPhoneTxt";
+            uPhoneTxt.Size = new Size(156, 34);
+            uPhoneTxt.TabIndex = 4;
             // 
-            // textBox1
+            // uNameTxt
             // 
-            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(24, 195);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(153, 34);
-            textBox1.TabIndex = 3;
+            uNameTxt.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            uNameTxt.Location = new Point(24, 195);
+            uNameTxt.Name = "uNameTxt";
+            uNameTxt.Size = new Size(153, 34);
+            uNameTxt.TabIndex = 3;
             // 
             // label3
             // 
@@ -374,18 +370,19 @@
             // panel3
             // 
             panel3.BackColor = Color.White;
-            panel3.Controls.Add(dataGridView1);
+            panel3.Controls.Add(refreshBtn);
+            panel3.Controls.Add(userGDV);
             panel3.Controls.Add(label4);
-            panel3.Controls.Add(button5);
-            panel3.Controls.Add(button4);
-            panel3.Controls.Add(button3);
-            panel3.Controls.Add(textBox4);
-            panel3.Controls.Add(textBox3);
+            panel3.Controls.Add(resetBtn);
+            panel3.Controls.Add(editBtn);
+            panel3.Controls.Add(deleteBtn);
+            panel3.Controls.Add(uAddressTxt);
+            panel3.Controls.Add(uPwTxt);
             panel3.Controls.Add(label12);
             panel3.Controls.Add(label11);
-            panel3.Controls.Add(button1);
-            panel3.Controls.Add(textBox2);
-            panel3.Controls.Add(textBox1);
+            panel3.Controls.Add(saveBtn);
+            panel3.Controls.Add(uPhoneTxt);
+            panel3.Controls.Add(uNameTxt);
             panel3.Controls.Add(label3);
             panel3.Controls.Add(label2);
             panel3.Controls.Add(label1);
@@ -393,6 +390,30 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(888, 656);
             panel3.TabIndex = 9;
+            // 
+            // refreshBtn
+            // 
+            refreshBtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            refreshBtn.Location = new Point(717, 295);
+            refreshBtn.Name = "refreshBtn";
+            refreshBtn.Size = new Size(138, 41);
+            refreshBtn.TabIndex = 21;
+            refreshBtn.Text = "Refresh";
+            refreshBtn.UseVisualStyleBackColor = true;
+            refreshBtn.Click += refreshBtn_Click;
+            // 
+            // userGDV
+            // 
+            userGDV.BackgroundColor = Color.White;
+            userGDV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            userGDV.Location = new Point(3, 418);
+            userGDV.Name = "userGDV";
+            userGDV.RowHeadersWidth = 51;
+            userGDV.RowTemplate.Height = 29;
+            userGDV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            userGDV.Size = new Size(878, 235);
+            userGDV.TabIndex = 20;
+            userGDV.CellContentClick += userGDV_CellContentClick;
             // 
             // users
             // 
@@ -406,7 +427,6 @@
             Name = "users";
             Text = "users";
             Load += users_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             panel7.ResumeLayout(false);
             panel7.PerformLayout();
@@ -422,18 +442,17 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)userGDV).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private DataGridView dataGridView1;
-        private Button button5;
-        private Button button4;
-        private Button button3;
-        private TextBox textBox4;
-        private TextBox textBox3;
+        private Button resetBtn;
+        private Button editBtn;
+        private Button deleteBtn;
+        private TextBox uAddressTxt;
+        private TextBox uPwTxt;
         private Label label12;
         private Label label11;
         private PictureBox pictureBox4;
@@ -452,12 +471,14 @@
         private Label label5;
         private Panel panel2;
         private Label label8;
-        private Button button1;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private Button saveBtn;
+        private TextBox uPhoneTxt;
+        private TextBox uNameTxt;
         private Label label3;
         private Label label2;
         private Label label1;
         private Panel panel3;
+        private DataGridView userGDV;
+        private Button refreshBtn;
     }
 }

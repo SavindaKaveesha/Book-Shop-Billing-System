@@ -17,7 +17,7 @@ namespace bookShop
         public books()
         {
             InitializeComponent();
-            populate();
+            viewTbl();
         }
 
         private void label8_Click(object sender, EventArgs e)
@@ -28,7 +28,7 @@ namespace bookShop
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Savinda\Documents\bookShopDb.mdf;Integrated Security=True;Connect Timeout=30");
 
 
-        public void populate()
+        public void viewTbl()
         {
             con.Open();
 
@@ -67,7 +67,7 @@ namespace bookShop
                 }
             }
 
-            populate();
+            viewTbl();
             reset();
 
         }
@@ -75,7 +75,7 @@ namespace bookShop
 
         private void refreshBtn_Click(object sender, EventArgs e)
         {
-            populate();
+            viewTbl();
         }
 
         private void comboBox2_SelectionChangeCommitted(object sender, EventArgs e)
@@ -128,6 +128,7 @@ namespace bookShop
             }
         }
 
+        //delete selected row from database
         private void deleteBtn_Click(object sender, EventArgs e)
         {
             if (key == 0)
@@ -150,7 +151,7 @@ namespace bookShop
 
                     con.Close();
 
-                    populate();
+                    viewTbl();
                 }
                 catch (Exception ex)
                 {
@@ -159,6 +160,7 @@ namespace bookShop
             }
         }
 
+        //edit selected row data 
         private void editBtn_Click(object sender, EventArgs e)
         {
             if (authorTxt.Text.Length == 0 || bookTxt.Text.Length == 0 || priceTxt.Text.Length == 0 || qtyTxt.Text.Length == 0 || catBox.SelectedIndex == -1)
@@ -180,7 +182,7 @@ namespace bookShop
 
                     con.Close();
 
-                    populate();
+                    viewTbl();
                 }
                 catch (Exception ex)
                 {
