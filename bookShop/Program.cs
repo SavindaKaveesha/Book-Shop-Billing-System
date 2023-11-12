@@ -12,7 +12,7 @@ namespace bookShop
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new Form1());
-            Application.Run(new users());
+            Application.Run(new Billing());
         }
     }
 }
