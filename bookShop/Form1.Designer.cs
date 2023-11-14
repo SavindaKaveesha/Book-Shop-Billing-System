@@ -41,6 +41,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.RoyalBlue;
             label1.Location = new Point(194, 82);
             label1.Name = "label1";
             label1.Size = new Size(473, 41);
@@ -49,6 +50,7 @@
             // 
             // Myprogress
             // 
+            Myprogress.ForeColor = Color.RoyalBlue;
             Myprogress.Location = new Point(12, 237);
             Myprogress.Name = "Myprogress";
             Myprogress.Size = new Size(781, 29);
@@ -58,7 +60,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.ForeColor = Color.LimeGreen;
+            label2.ForeColor = Color.RoyalBlue;
             label2.Location = new Point(12, 203);
             label2.Name = "label2";
             label2.Size = new Size(127, 31);
@@ -69,7 +71,7 @@
             // 
             presentageLab.AutoSize = true;
             presentageLab.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            presentageLab.ForeColor = Color.LimeGreen;
+            presentageLab.ForeColor = Color.RoyalBlue;
             presentageLab.Location = new Point(138, 205);
             presentageLab.Name = "presentageLab";
             presentageLab.Size = new Size(33, 31);

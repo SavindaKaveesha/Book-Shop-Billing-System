@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Billing));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             bookGDV = new DataGridView();
             label4 = new Label();
             resetBtn = new Button();
@@ -39,15 +40,13 @@
             addToBillBtn = new Button();
             label8 = new Label();
             panel1 = new Panel();
-            panel9 = new Panel();
-            panel8 = new Panel();
             panel7 = new Panel();
             panel4 = new Panel();
-            pictureBox1 = new PictureBox();
             label5 = new Label();
+            pictureBox1 = new PictureBox();
             panel6 = new Panel();
-            pictureBox3 = new PictureBox();
             label6 = new Label();
+            pictureBox3 = new PictureBox();
             panel2 = new Panel();
             panel3 = new Panel();
             totalLbl = new Label();
@@ -164,7 +163,7 @@
             label8.BackColor = Color.RoyalBlue;
             label8.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             label8.ForeColor = SystemColors.Window;
-            label8.Location = new Point(1127, 9);
+            label8.Location = new Point(1121, 9);
             label8.Name = "label8";
             label8.Size = new Size(29, 31);
             label8.TabIndex = 10;
@@ -173,9 +172,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.RoyalBlue;
-            panel1.Controls.Add(panel9);
-            panel1.Controls.Add(panel8);
+            panel1.BackColor = SystemColors.Window;
             panel1.Controls.Add(panel7);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(panel6);
@@ -185,46 +182,42 @@
             panel1.Size = new Size(254, 768);
             panel1.TabIndex = 8;
             // 
-            // panel9
-            // 
-            panel9.BackColor = SystemColors.Window;
-            panel9.Location = new Point(-1, 738);
-            panel9.Name = "panel9";
-            panel9.Size = new Size(270, 10);
-            panel9.TabIndex = 25;
-            // 
-            // panel8
-            // 
-            panel8.BackColor = SystemColors.Window;
-            panel8.Location = new Point(-4, 660);
-            panel8.Name = "panel8";
-            panel8.Size = new Size(270, 10);
-            panel8.TabIndex = 17;
-            // 
             // panel7
             // 
-            panel7.BackColor = SystemColors.Window;
-            panel7.Location = new Point(-2, 580);
+            panel7.BackColor = Color.RoyalBlue;
+            panel7.Location = new Point(-2, 6);
             panel7.Name = "panel7";
-            panel7.Size = new Size(270, 10);
+            panel7.Size = new Size(261, 584);
             panel7.TabIndex = 16;
             // 
             // panel4
             // 
-            panel4.BackColor = Color.Transparent;
+            panel4.BackColor = Color.RoyalBlue;
             panel4.BorderStyle = BorderStyle.FixedSingle;
-            panel4.Controls.Add(pictureBox1);
             panel4.Controls.Add(label5);
-            panel4.Location = new Point(21, 598);
+            panel4.Controls.Add(pictureBox1);
+            panel4.Location = new Point(-2, 592);
             panel4.Name = "panel4";
-            panel4.Size = new Size(211, 53);
+            panel4.Size = new Size(256, 84);
             panel4.TabIndex = 15;
             panel4.Click += panel4_Click;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Verdana", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.ForeColor = SystemColors.ButtonHighlight;
+            label5.Location = new Point(88, 24);
+            label5.Name = "label5";
+            label5.Size = new Size(129, 28);
+            label5.TabIndex = 7;
+            label5.Text = "Properties";
+            label5.Click += label5_Click;
+            // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.right_2767192;
-            pictureBox1.Location = new Point(-18, 7);
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(3, 19);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(104, 40);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -232,52 +225,40 @@
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.ForeColor = SystemColors.ButtonHighlight;
-            label5.Location = new Point(83, 9);
-            label5.Name = "label5";
-            label5.Size = new Size(118, 31);
-            label5.TabIndex = 7;
-            label5.Text = "Properties";
-            label5.Click += label5_Click;
-            // 
             // panel6
             // 
-            panel6.BackColor = Color.Transparent;
+            panel6.BackColor = Color.RoyalBlue;
             panel6.BorderStyle = BorderStyle.FixedSingle;
-            panel6.Controls.Add(pictureBox3);
             panel6.Controls.Add(label6);
-            panel6.Location = new Point(21, 679);
+            panel6.Controls.Add(pictureBox3);
+            panel6.Location = new Point(-2, 678);
             panel6.Name = "panel6";
-            panel6.Size = new Size(211, 53);
+            panel6.Size = new Size(256, 82);
             panel6.TabIndex = 14;
             panel6.Click += panel6_Click;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Verdana", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.ForeColor = SystemColors.ButtonHighlight;
+            label6.Location = new Point(89, 26);
+            label6.Name = "label6";
+            label6.Size = new Size(99, 28);
+            label6.TabIndex = 7;
+            label6.Text = "Log out";
+            label6.Click += label6_Click;
+            // 
             // pictureBox3
             // 
-            pictureBox3.Image = Properties.Resources.right_2767192;
-            pictureBox3.Location = new Point(-18, 7);
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(4, 21);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(104, 40);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 11;
             pictureBox3.TabStop = false;
             pictureBox3.Click += pictureBox3_Click;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.ForeColor = SystemColors.ButtonHighlight;
-            label6.Location = new Point(83, 9);
-            label6.Name = "label6";
-            label6.Size = new Size(92, 31);
-            label6.TabIndex = 7;
-            label6.Text = "Log out";
-            label6.Click += label6_Click;
             // 
             // panel2
             // 
@@ -308,7 +289,7 @@
             panel3.Controls.Add(panel5);
             panel3.Location = new Point(238, -8);
             panel3.Name = "panel3";
-            panel3.Size = new Size(926, 759);
+            panel3.Size = new Size(926, 765);
             panel3.TabIndex = 9;
             // 
             // totalLbl
@@ -343,7 +324,16 @@
             // 
             // billGDV
             // 
+            billGDV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             billGDV.BackgroundColor = SystemColors.ButtonHighlight;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            billGDV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             billGDV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             billGDV.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5 });
             billGDV.Location = new Point(133, 450);
@@ -358,35 +348,30 @@
             Column1.HeaderText = "ID";
             Column1.MinimumWidth = 6;
             Column1.Name = "Column1";
-            Column1.Width = 125;
             // 
             // Column2
             // 
             Column2.HeaderText = "Iteam";
             Column2.MinimumWidth = 6;
             Column2.Name = "Column2";
-            Column2.Width = 125;
             // 
             // Column3
             // 
             Column3.HeaderText = "Qty";
             Column3.MinimumWidth = 6;
             Column3.Name = "Column3";
-            Column3.Width = 125;
             // 
             // Column4
             // 
             Column4.HeaderText = "Price";
             Column4.MinimumWidth = 6;
             Column4.Name = "Column4";
-            Column4.Width = 125;
             // 
             // Column5
             // 
             Column5.HeaderText = "Total";
             Column5.MinimumWidth = 6;
             Column5.Name = "Column5";
-            Column5.Width = 125;
             // 
             // itemTxt
             // 
@@ -422,7 +407,7 @@
             // panel5
             // 
             panel5.BackColor = Color.RoyalBlue;
-            panel5.Location = new Point(-1, -15);
+            panel5.Location = new Point(-5, -15);
             panel5.Name = "panel5";
             panel5.Size = new Size(924, 126);
             panel5.TabIndex = 24;
@@ -504,8 +489,6 @@
         private Panel panel5;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private PrintPreviewDialog printPreviewDialog1;
-        private Panel panel9;
-        private Panel panel8;
         private Panel panel7;
     }
 }
