@@ -44,11 +44,11 @@
             panel6 = new Panel();
             label6 = new Label();
             panel5 = new Panel();
-            pictureBox2 = new PictureBox();
             label9 = new Label();
+            pictureBox2 = new PictureBox();
             panel4 = new Panel();
-            pictureBox1 = new PictureBox();
             label5 = new Label();
+            pictureBox1 = new PictureBox();
             panel2 = new Panel();
             label8 = new Label();
             saveBtn = new Button();
@@ -56,10 +56,11 @@
             uNameTxt = new TextBox();
             label3 = new Label();
             label2 = new Label();
-            label1 = new Label();
             panel3 = new Panel();
             refreshBtn = new Button();
             userGDV = new DataGridView();
+            panel8 = new Panel();
+            label10 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -71,6 +72,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)userGDV).BeginInit();
+            panel8.SuspendLayout();
             SuspendLayout();
             // 
             // resetBtn
@@ -145,12 +147,13 @@
             // pictureBox4
             // 
             pictureBox4.Image = Properties.Resources.right_2767192;
-            pictureBox4.Location = new Point(-23, 9);
+            pictureBox4.Location = new Point(-23, 5);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(104, 40);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 11;
             pictureBox4.TabStop = false;
+            pictureBox4.Click += pictureBox4_Click;
             // 
             // label7
             // 
@@ -162,16 +165,19 @@
             label7.Size = new Size(126, 31);
             label7.TabIndex = 7;
             label7.Text = "Dashboard";
+            label7.Click += label7_Click;
             // 
             // panel7
             // 
-            panel7.BackColor = Color.DeepSkyBlue;
-            panel7.Controls.Add(pictureBox4);
+            panel7.BackColor = Color.Transparent;
+            panel7.BorderStyle = BorderStyle.FixedSingle;
             panel7.Controls.Add(label7);
+            panel7.Controls.Add(pictureBox4);
             panel7.Location = new Point(14, 338);
             panel7.Name = "panel7";
             panel7.Size = new Size(211, 53);
             panel7.TabIndex = 13;
+            panel7.Click += panel7_Click;
             // 
             // label4
             // 
@@ -192,10 +198,11 @@
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 11;
             pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox3_Click;
             // 
             // panel1
             // 
-            panel1.BackColor = Color.DarkBlue;
+            panel1.BackColor = Color.MediumBlue;
             panel1.Controls.Add(panel6);
             panel1.Controls.Add(panel5);
             panel1.Controls.Add(panel7);
@@ -208,13 +215,15 @@
             // 
             // panel6
             // 
-            panel6.BackColor = Color.DeepSkyBlue;
-            panel6.Controls.Add(pictureBox3);
+            panel6.BackColor = Color.Transparent;
+            panel6.BorderStyle = BorderStyle.FixedSingle;
             panel6.Controls.Add(label6);
+            panel6.Controls.Add(pictureBox3);
             panel6.Location = new Point(14, 440);
             panel6.Name = "panel6";
             panel6.Size = new Size(211, 53);
             panel6.TabIndex = 14;
+            panel6.Click += panel6_Click;
             // 
             // label6
             // 
@@ -226,27 +235,17 @@
             label6.Size = new Size(92, 31);
             label6.TabIndex = 7;
             label6.Text = "Log out";
+            label6.Click += label6_Click;
             // 
             // panel5
             // 
             panel5.BackColor = Color.DeepSkyBlue;
-            panel5.Controls.Add(pictureBox2);
             panel5.Controls.Add(label9);
+            panel5.Controls.Add(pictureBox2);
             panel5.Location = new Point(14, 235);
             panel5.Name = "panel5";
             panel5.Size = new Size(211, 53);
             panel5.TabIndex = 12;
-            panel5.Paint += panel5_Paint;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = Properties.Resources.right_2767192;
-            pictureBox2.Location = new Point(-23, 9);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(104, 40);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 11;
-            pictureBox2.TabStop = false;
             // 
             // label9
             // 
@@ -259,15 +258,39 @@
             label9.TabIndex = 7;
             label9.Text = "Users";
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.right_2767192;
+            pictureBox2.Location = new Point(-23, 9);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(104, 40);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 11;
+            pictureBox2.TabStop = false;
+            // 
             // panel4
             // 
-            panel4.BackColor = Color.DeepSkyBlue;
-            panel4.Controls.Add(pictureBox1);
+            panel4.BackColor = Color.Transparent;
+            panel4.BorderStyle = BorderStyle.FixedSingle;
             panel4.Controls.Add(label5);
+            panel4.Controls.Add(pictureBox1);
             panel4.Location = new Point(14, 125);
             panel4.Name = "panel4";
             panel4.Size = new Size(211, 53);
             panel4.TabIndex = 10;
+            panel4.Click += panel4_Click;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.ForeColor = SystemColors.ButtonHighlight;
+            label5.Location = new Point(71, 8);
+            label5.Name = "label5";
+            label5.Size = new Size(110, 31);
+            label5.TabIndex = 7;
+            label5.Text = "Invontory";
+            label5.Click += label5_Click;
             // 
             // pictureBox1
             // 
@@ -278,17 +301,7 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 11;
             pictureBox1.TabStop = false;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.ForeColor = SystemColors.ButtonHighlight;
-            label5.Location = new Point(71, 8);
-            label5.Name = "label5";
-            label5.Size = new Size(64, 31);
-            label5.TabIndex = 7;
-            label5.Text = "Book";
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // panel2
             // 
@@ -303,7 +316,8 @@
             label8.AutoSize = true;
             label8.BackColor = Color.Transparent;
             label8.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.Location = new Point(1119, -4);
+            label8.ForeColor = SystemColors.Control;
+            label8.Location = new Point(859, 0);
             label8.Name = "label8";
             label8.Size = new Size(29, 31);
             label8.TabIndex = 10;
@@ -357,16 +371,6 @@
             label2.TabIndex = 1;
             label2.Text = "User";
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(312, 50);
-            label1.Name = "label1";
-            label1.Size = new Size(193, 46);
-            label1.TabIndex = 0;
-            label1.Text = "Book Shop";
-            // 
             // panel3
             // 
             panel3.BackColor = Color.White;
@@ -385,7 +389,6 @@
             panel3.Controls.Add(uNameTxt);
             panel3.Controls.Add(label3);
             panel3.Controls.Add(label2);
-            panel3.Controls.Add(label1);
             panel3.Location = new Point(259, 12);
             panel3.Name = "panel3";
             panel3.Size = new Size(888, 656);
@@ -415,16 +418,38 @@
             userGDV.TabIndex = 20;
             userGDV.CellContentClick += userGDV_CellContentClick;
             // 
+            // panel8
+            // 
+            panel8.BackColor = Color.MediumBlue;
+            panel8.Controls.Add(label10);
+            panel8.Controls.Add(label8);
+            panel8.Location = new Point(259, 12);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(888, 125);
+            panel8.TabIndex = 22;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
+            label10.ForeColor = SystemColors.Control;
+            label10.Location = new Point(285, 45);
+            label10.Name = "label10";
+            label10.Size = new Size(295, 46);
+            label10.TabIndex = 22;
+            label10.Text = "User Managment";
+            // 
             // users
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1156, 680);
+            Controls.Add(panel8);
             Controls.Add(panel1);
-            Controls.Add(label8);
             Controls.Add(panel3);
             FormBorderStyle = FormBorderStyle.None;
             Name = "users";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "users";
             Load += users_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
@@ -443,8 +468,9 @@
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)userGDV).EndInit();
+            panel8.ResumeLayout(false);
+            panel8.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -476,9 +502,10 @@
         private TextBox uNameTxt;
         private Label label3;
         private Label label2;
-        private Label label1;
         private Panel panel3;
         private DataGridView userGDV;
         private Button refreshBtn;
+        private Panel panel8;
+        private Label label10;
     }
 }

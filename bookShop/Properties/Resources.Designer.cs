@@ -63,9 +63,29 @@ namespace bookShop.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _2606517_5856_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("2606517_5856-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap right_2767192 {
             get {
                 object obj = ResourceManager.GetObject("right_2767192", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user_1144760 {
+            get {
+                object obj = ResourceManager.GetObject("user_1144760", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

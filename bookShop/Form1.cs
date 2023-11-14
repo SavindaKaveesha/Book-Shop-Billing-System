@@ -12,7 +12,7 @@ namespace bookShop
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            startpos += 1;
+            startpos += 10;
             Myprogress.Value = startpos;
             presentageLab.Text = startpos.ToString() + "%";
 
@@ -36,5 +36,6 @@ namespace bookShop
             //Close button  
             Application.Exit();
         }
+
     }
 }

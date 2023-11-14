@@ -28,11 +28,6 @@ namespace bookShop
 
         }
 
-        private void panel5_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         //close button
         private void label8_Click(object sender, EventArgs e)
         {
@@ -182,6 +177,72 @@ namespace bookShop
                     MessageBox.Show(ex.Message);
                 }
             }
+        }
+
+        public void showLogin()
+        {
+            login obj = new login();
+            this.Hide();
+            obj.Show();
+        }
+
+        private void panel6_Click(object sender, EventArgs e)
+        {
+            showLogin();
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            showLogin();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            showLogin();
+        }
+
+        public void showBooks()
+        {
+            books obj = new books();
+            this.Hide();
+            obj.Show();
+        }
+
+        private void panel4_Click(object sender, EventArgs e)
+        {
+            showBooks();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            showBooks();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            showBooks();
+        }
+
+        public void showDashboard()
+        {
+            Dashboard obj = new Dashboard();
+            this.Hide();
+            obj.Show();
+        }
+
+        private void panel7_Click(object sender, EventArgs e)
+        {
+            showDashboard();
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            showDashboard();
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            showDashboard();
         }
     }
 }

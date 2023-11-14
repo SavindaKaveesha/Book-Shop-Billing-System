@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,12 +18,14 @@ namespace bookShop
         {
             InitializeComponent();
             viewTbl();
+            printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(printDocument1_PrintPage);
+
         }
 
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Savinda\Documents\bookShopDb.mdf;Integrated Security=True;Connect Timeout=30");
         int key = 0;
         int stock = 0;
-        int subTotal=0;
+        int subTotal = 0;
 
         //display databse details
         public void viewTbl()
@@ -138,6 +141,98 @@ namespace bookShop
 
                 clear();
             }
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            showLogin();
+        }
+
+        public void showLogin()
+        {
+            login obj = new login();
+            this.Hide();
+            obj.Show();
+        }
+        private void panel6_Click(object sender, EventArgs e)
+        {
+            showLogin();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            showLogin();
+        }
+
+        public void showBooks()
+        {
+            books obj = new books();
+            this.Hide();
+            obj.Show();
+        }
+
+        private void panel4_Click(object sender, EventArgs e)
+        {
+            showBooks();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            showBooks();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            showBooks();
+        }
+
+        private void printBtn_Click(object sender, EventArgs e)
+        {
+            printDocument1.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("pprnm", 285, 600);
+            if (printPreviewDialog1.ShowDialog() == DialogResult.OK)
+            {
+                printDocument1.Print();
+            }
+        }
+
+        int id, price, qty, tot;
+        string prodName;
+        int Yposition = 60;
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawString("INVOICE", new Font("Century Gothic", 8, FontStyle.Bold), Brushes.Black, new Point(100, 10));
+            e.Graphics.DrawString("ID      Name            Price    Quantity    Total", new Font("Century Gothic", 8), Brushes.Red, new Point(26, 40));
+
+            foreach (DataGridViewRow row in billGDV.Rows)
+            {
+
+                if (Convert.ToInt32(row.Cells[0].Value) == 0)
+                {
+                    break;
+                }
+                else
+                {
+                    id = Convert.ToInt32(row.Cells[0].Value);
+                    prodName = "" + row.Cells[1].Value;
+                    price = Convert.ToInt32(row.Cells[3].Value);
+                    qty = Convert.ToInt32(row.Cells[2].Value);
+                    tot = Convert.ToInt32(row.Cells[4].Value);
+
+                    e.Graphics.DrawString(" " + id.ToString(), new Font("Century Gothic", 8), Brushes.Blue, new Point(20, Yposition));
+                    e.Graphics.DrawString(" " + prodName.ToString(), new Font("Century Gothic", 6), Brushes.Blue, new Point(55, Yposition + 2));
+                    e.Graphics.DrawString(" " + price.ToString(), new Font("Century Gothic", 8), Brushes.Blue, new Point(130, Yposition));
+                    e.Graphics.DrawString(" " + qty.ToString(), new Font("Century Gothic", 8), Brushes.Blue, new Point(200, Yposition));
+                    e.Graphics.DrawString(" " + tot.ToString(), new Font("Century Gothic", 8), Brushes.Blue, new Point(235, Yposition));
+                    Yposition = Yposition + 20;
+                }
+            }
+            e.Graphics.DrawString("Net Total Payment: " + subTotal, new Font("Century Gothic", 8), Brushes.Black, new Point(80, Yposition + 30));
+            //e.Graphics.DrawString("Net Total Amount: " + sumOfAll, new Font("Century Gothic", 8), Brushes.Black, new Point(80, 350));
+            //e.Graphics.DrawString("Change Amount: " + change, new Font("Century Gothic", 8), Brushes.Black, new Point(80, 380));
+            e.Graphics.DrawString("THANK YOU !", new Font("Century Gothic", 12), Brushes.Black, new Point(80, Yposition + 60));
+
+
         }
     }
 }
