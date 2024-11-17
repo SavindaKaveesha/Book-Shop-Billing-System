@@ -1,6 +1,3 @@
-### `README.md`:
-
-```markdown
 # Book Shop Billing System
 
 This is a simple **Book Shop Billing System** built using **C#** and **Windows Forms**. The program allows users to manage a book shop's inventory, perform billing operations, and generate invoices. It interacts with a **SQL Server** database to retrieve book details and update stock levels.
