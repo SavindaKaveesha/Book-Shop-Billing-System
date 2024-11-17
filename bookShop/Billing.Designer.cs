@@ -291,6 +291,7 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(926, 765);
             panel3.TabIndex = 9;
+            panel3.Paint += panel3_Paint;
             // 
             // totalLbl
             // 

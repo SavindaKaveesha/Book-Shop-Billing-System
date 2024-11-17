@@ -18,7 +18,7 @@ namespace bookShop
             InitializeComponent();
         }
 
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Savinda\Documents\bookShopDb.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection con = new SqlConnection(@"Data Source=SAVINDA;Initial Catalog=bookShopDb;Integrated Security=True;Pooling=False;Encrypt=True;TrustServerCertificate=True;");
 
         private void label2_Click(object sender, EventArgs e)
         {

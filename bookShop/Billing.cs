@@ -22,10 +22,9 @@ namespace bookShop
 
         }
 
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Savinda\Documents\bookShopDb.mdf;Integrated Security=True;Connect Timeout=30");
-        int key = 0;
+        SqlConnection con = new SqlConnection(@"Data Source=SAVINDA;Initial Catalog=bookShopDb;Integrated Security=True;Pooling=False;Encrypt=True;TrustServerCertificate=True;"); int key = 0;
         int stock = 0;
-        int subTotal = 0;
+        decimal subTotal = 0;
 
         //display databse details
         public void viewTbl()
@@ -112,36 +111,59 @@ namespace bookShop
 
         private void addToBillBtn_Click(object sender, EventArgs e)
         {
-            int n = 0;
+            if (ValidateFields() == true) { 
 
-            if (qtyTxt.Text.Length == 0 || int.Parse(qtyTxt.Text) > stock)
+                int n = 0;
+
+            // Ensure qtyTxt and priceTxt are not empty and contain valid numbers
+            if (string.IsNullOrWhiteSpace(priceTxt.Text) || !decimal.TryParse(priceTxt.Text, out decimal price) || price <= 0)
+            {
+                MessageBox.Show("Please enter a valid quantity.");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(priceTxt.Text) || !decimal.TryParse(priceTxt.Text, out price) || price <= 0)
+            {
+                MessageBox.Show("Please enter a valid price.");
+                return;
+            }
+
+            // Check stock availability
+            if (qty > stock)
             {
                 MessageBox.Show("Not enough stock");
+                return;
             }
-            else
-            {
-                int total = int.Parse(qtyTxt.Text) * int.Parse(priceTxt.Text);
 
-                DataGridViewRow newRow = new DataGridViewRow();
 
-                newRow.CreateCells(billGDV);
+            qty = Convert.ToInt32(qtyTxt.Text);
 
-                newRow.Cells[0].Value = n + 1;
-                newRow.Cells[1].Value = itemTxt.Text;
-                newRow.Cells[2].Value = qtyTxt.Text;
-                newRow.Cells[3].Value = priceTxt.Text;
-                newRow.Cells[4].Value = total;
-                billGDV.Rows.Add(newRow);
-                n++;
-                subTotal += total;
 
-                totalLbl.Text = subTotal.ToString();
+            // Calculate the total
+            decimal total = qty * price;
 
-                update();
+            DataGridViewRow newRow = new DataGridViewRow();
+            newRow.CreateCells(billGDV);
 
-                clear();
-            }
+            newRow.Cells[0].Value = n + 1;
+            newRow.Cells[1].Value = itemTxt.Text;
+            newRow.Cells[2].Value = qty.ToString();
+            newRow.Cells[3].Value = price.ToString();
+            newRow.Cells[4].Value = total.ToString();
+            billGDV.Rows.Add(newRow);
+
+            n++;
+            subTotal += total;
+
+            totalLbl.Text = subTotal.ToString();
+
+            update();
+
+            clear();
+
         }
+        }
+
 
         private void label6_Click(object sender, EventArgs e)
         {
@@ -195,7 +217,8 @@ namespace bookShop
             }
         }
 
-        int id, price, qty, tot;
+        int id, qty;
+        decimal price, tot;
         string prodName;
         int Yposition = 60;
 
@@ -215,9 +238,9 @@ namespace bookShop
                 {
                     id = Convert.ToInt32(row.Cells[0].Value);
                     prodName = "" + row.Cells[1].Value;
-                    price = Convert.ToInt32(row.Cells[3].Value);
+                    price = Convert.ToDecimal(row.Cells[3].Value);
                     qty = Convert.ToInt32(row.Cells[2].Value);
-                    tot = Convert.ToInt32(row.Cells[4].Value);
+                    tot = Convert.ToDecimal(row.Cells[4].Value);
 
                     e.Graphics.DrawString(" " + id.ToString(), new Font("Century Gothic", 8), Brushes.Blue, new Point(20, Yposition));
                     e.Graphics.DrawString(" " + prodName.ToString(), new Font("Century Gothic", 6), Brushes.Blue, new Point(55, Yposition + 2));
@@ -228,11 +251,34 @@ namespace bookShop
                 }
             }
             e.Graphics.DrawString("Net Total Payment: " + subTotal, new Font("Century Gothic", 8), Brushes.Black, new Point(80, Yposition + 30));
-            //e.Graphics.DrawString("Net Total Amount: " + sumOfAll, new Font("Century Gothic", 8), Brushes.Black, new Point(80, 350));
-            //e.Graphics.DrawString("Change Amount: " + change, new Font("Century Gothic", 8), Brushes.Black, new Point(80, 380));
             e.Graphics.DrawString("THANK YOU !", new Font("Century Gothic", 12), Brushes.Black, new Point(80, Yposition + 60));
 
 
         }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        public bool ValidateFields()
+        {
+            // Validate qtyTxt: Ensure it's not empty and contains a valid integer
+            if (string.IsNullOrWhiteSpace(qtyTxt.Text) || !int.TryParse(qtyTxt.Text, out int qty) || qty <= 0)
+            {
+                MessageBox.Show("Please enter a valid quantity greater than zero.");
+                return false;  // Invalid input
+            }
+
+            // Validate priceTxt: Ensure it's not empty and contains a valid decimal value
+            if (string.IsNullOrWhiteSpace(priceTxt.Text) || !decimal.TryParse(priceTxt.Text, out decimal price) || price <= 0)
+            {
+                MessageBox.Show("Please enter a valid price greater than zero.");
+                return false;  // Invalid input
+            }
+
+            return true;  // Both fields are valid
+        }
+
     }
 }
