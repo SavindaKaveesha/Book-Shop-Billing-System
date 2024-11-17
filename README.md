@@ -2,6 +2,17 @@
 
 This is a simple **Book Shop Billing System** built using **C#** and **Windows Forms**. The program allows users to manage a book shop's inventory, perform billing operations, and generate invoices. It interacts with a **SQL Server** database to retrieve book details and update stock levels.
 
+## Screenshots
+
+![image](https://github.com/user-attachments/assets/d7075fdf-a7ba-4e13-95cc-711750d668b6)
+
+![image](https://github.com/user-attachments/assets/aa3a35b9-8620-45b4-968f-88fcee0ef92a)
+
+![image](https://github.com/user-attachments/assets/b1cfa4d7-7cde-4040-9b5e-d28fcac4a650)
+
+![image](https://github.com/user-attachments/assets/f30422be-88ec-4a97-a516-92399d0ebdf9)
+
+
 ## Features
 
 - Display books in the shop using a **DataGridView**.
@@ -44,9 +55,6 @@ To run this project, you'll need the following:
 4. Once you've added all items, click **Print** to generate and print the invoice.
 5. You can **Reset** the fields or **Refresh** the book list as needed.
 
-## Screenshots
-
-- Add a screenshot of the app UI here (optional).
 
 ## Contributing
 
